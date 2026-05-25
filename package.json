@@ -1,0 +1,23 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "@esbuild/win32-x64": "0.27.3",
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@expo/vector-icons": "^15.1.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "0.28.0",
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3"
+  },
+  "overrides": {
+    "esbuild": "0.28.0"
+  }
+}

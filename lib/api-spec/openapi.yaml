@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: drive
+    description: Google Drive file operations
+  - name: pdf
+    description: PDF merge operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /drive/files:
+    get:
+      operationId: listDriveFiles
+      tags: [drive]
+      summary: List all files from the configured Google Drive folder
+      responses:
+        "200":
+          description: List of files
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DriveFileListResponse"
+
+  /drive/sync:
+    post:
+      operationId: syncDriveFiles
+      tags: [drive]
+      summary: Trigger a manual sync of files from Google Drive
+      responses:
+        "200":
+          description: Sync result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SyncResponse"
+
+  /pdf/merge:
+    post:
+      operationId: mergePdf
+      tags: [pdf]
+      summary: Merge selected files into one PDF and return the download token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MergeRequest"
+      responses:
+        "200":
+          description: Merge result with download token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MergeResponse"
+
+  /pdf/download/{token}:
+    get:
+      operationId: downloadMergedPdf
+      tags: [pdf]
+      summary: Download the merged PDF by token
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: PDF file binary
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    DriveFile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        mimeType:
+          type: string
+        size:
+          type: number
+        modifiedTime:
+          type: string
+        webViewLink:
+          type: string
+        iconLink:
+          type: string
+      required:
+        - id
+        - name
+        - mimeType
+        - modifiedTime
+
+    DriveFileListResponse:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: "#/components/schemas/DriveFile"
+        total:
+          type: number
+        configured:
+          type: boolean
+        message:
+          type: string
+      required:
+        - files
+        - total
+        - configured
+
+    SyncResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        added:
+          type: number
+        message:
+          type: string
+      required:
+        - success
+        - added
+        - message
+
+    MergeRequest:
+      type: object
+      properties:
+        fileIds:
+          type: array
+          items:
+            type: string
+          minItems: 1
+        outputName:
+          type: string
+          description: Desired filename for the merged PDF (without extension)
+      required:
+        - fileIds
+        - outputName
+
+    MergeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        token:
+          type: string
+          description: Download token valid for 10 minutes
+        fileName:
+          type: string
+        pageCount:
+          type: number
+        error:
+          type: string
+      required:
+        - success
