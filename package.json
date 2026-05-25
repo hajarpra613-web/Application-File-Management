@@ -10,13 +10,15 @@
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
+  "dependencies": {
+    "typescript": "~5.9.3"
+  },
   "devDependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo/vector-icons": "^15.1.1",
     "cross-env": "^7.0.3",
     "esbuild": "0.28.0",
-    "prettier": "^3.8.3",
-    "typescript": "~5.9.3"
+    "prettier": "^3.8.3"
   },
   "overrides": {
     "esbuild": "0.28.0"
