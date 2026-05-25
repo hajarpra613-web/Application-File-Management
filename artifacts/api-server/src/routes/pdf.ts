@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router, type IRouter } from "express";
 import { mergePdfFiles, getDownloadBuffer, cleanExpiredTokens } from "../lib/pdfService";
 
-const router = Router();
+const router: IRouter = Router();
 
 setInterval(cleanExpiredTokens, 5 * 60 * 1000);
 

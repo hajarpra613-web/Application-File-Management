@@ -5,7 +5,6 @@
   "main": "expo-router/entry",
   "scripts": {
     "dev": "pnpm exec expo start --localhost",
-    "build": "node scripts/build.js",
     "serve": "node server/serve.js",
     "typecheck": "cross-env NODE_OPTIONS=--max-old-space-size=4096 tsc -p tsconfig.json --noEmit"
   },
