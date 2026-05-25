@@ -5,7 +5,7 @@
   "packageManager": "pnpm@9.15.4",
   "scripts": {
     "build": "pnpm run build:libs && pnpm run typecheck && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run build",
-    "build:libs": "pnpm -r --filter \"./lib/**\" run build",
+    "build:libs": "tsc --build",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
