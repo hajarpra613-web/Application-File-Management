@@ -1,7 +1,7 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
+  "compilerOptions": {
+    "composite": false
+  },
   "references": [
     {
       "path": "./lib/db"

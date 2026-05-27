@@ -11,6 +11,7 @@ import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
+import { LogBox } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -18,6 +19,15 @@ import { SelectedFilesProvider } from "@/context/SelectedFilesContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+// Suppress Reanimated reduced motion warning in development
+if (__DEV__) {
+  LogBox.ignoreLogs([
+    "[Reanimated] Reduced motion setting is enabled",
+    "shadow",
+    "pointerEvents is deprecated",
+  ]);
+}
 
 const queryClient = new QueryClient();
 

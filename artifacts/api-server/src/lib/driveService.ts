@@ -1,25 +1,42 @@
 import { google } from "googleapis";
+import { logger } from "./logger";
 
-const FOLDER_ID = process.env["GOOGLE_DRIVE_FOLDER_ID"] ?? "";
-const SERVICE_ACCOUNT_JSON = process.env["GOOGLE_SERVICE_ACCOUNT_JSON"] ?? "";
+function getConfig() {
+  return {
+    FOLDER_ID: process.env["GOOGLE_DRIVE_FOLDER_ID"] ?? "",
+    SERVICE_ACCOUNT_JSON: process.env["GOOGLE_SERVICE_ACCOUNT_JSON"] ?? "",
+  };
+}
 
 function getAuth() {
-  if (!SERVICE_ACCOUNT_JSON) return null;
+  const { SERVICE_ACCOUNT_JSON } = getConfig();
+  console.log("DEBUG getAuth: SERVICE_ACCOUNT_JSON raw length:", SERVICE_ACCOUNT_JSON.length);
+  console.log("DEBUG getAuth: SERVICE_ACCOUNT_JSON first 100 chars:", SERVICE_ACCOUNT_JSON.substring(0, 100));
+  console.log("DEBUG getAuth: SERVICE_ACCOUNT_JSON last 100 chars:", SERVICE_ACCOUNT_JSON.substring(SERVICE_ACCOUNT_JSON.length - 100));
+  
+  if (!SERVICE_ACCOUNT_JSON) {
+    logger.warn("GOOGLE_SERVICE_ACCOUNT_JSON is not set.");
+    return null;
+  }
   try {
     const credentials = JSON.parse(SERVICE_ACCOUNT_JSON);
     return new google.auth.GoogleAuth({
       credentials,
       scopes: ["https://www.googleapis.com/auth/drive.readonly"],
     });
-  } catch {
+  } catch (e) {
+    logger.error({ err: e }, "Failed to parse GOOGLE_SERVICE_ACCOUNT_JSON");
     return null;
   }
 }
 
 export async function getDriveFiles() {
+  const { FOLDER_ID } = getConfig();
   const auth = getAuth();
+  logger.debug({ auth: !!auth, folderId: FOLDER_ID }, "Checking Google Drive configuration");
 
   if (!auth || !FOLDER_ID) {
+    logger.warn("Google Drive not configured. Showing demo files. Set GOOGLE_SERVICE_ACCOUNT_JSON and GOOGLE_DRIVE_FOLDER_ID to connect.");
     return {
       files: getDemoFiles(),
       total: getDemoFiles().length,
@@ -50,6 +67,7 @@ export async function getDriveFiles() {
 }
 
 export async function syncDriveFiles() {
+  const { FOLDER_ID } = getConfig();
   const auth = getAuth();
 
   if (!auth || !FOLDER_ID) {

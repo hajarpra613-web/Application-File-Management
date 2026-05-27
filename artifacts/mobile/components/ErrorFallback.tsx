@@ -214,6 +214,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 24,
     minWidth: 200,
+    // Shadow styling (using elevation for Android)
+    elevation: 4,
+    // iOS shadow props (kept for compatibility)
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -221,7 +224,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
   buttonText: {
     fontWeight: "600",

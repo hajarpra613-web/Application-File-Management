@@ -1,3 +1,16 @@
+import dotenv from "dotenv";
+
+// Load environment variables BEFORE importing anything else
+dotenv.config();
+
+// Debug: Lihat environment variables
+console.log("=== ENV DEBUG ===");
+console.log("LOG_LEVEL:", process.env.LOG_LEVEL);
+console.log("GOOGLE_SERVICE_ACCOUNT_JSON set:", !!process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+console.log("GOOGLE_DRIVE_FOLDER_ID:", process.env.GOOGLE_DRIVE_FOLDER_ID);
+console.log("PORT:", process.env.PORT);
+console.log("================");
+
 import app from "./app";
 import { logger } from "./lib/logger";
 

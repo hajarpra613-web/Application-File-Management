@@ -609,11 +609,13 @@ function makeStyles(colors: ReturnType<typeof useColors>, insets: ReturnType<typ
       backgroundColor: colors.primary,
       borderRadius: 14,
       paddingVertical: 16,
+      // Shadow styling (using elevation for Android)
+      elevation: 8,
+      // iOS shadow props (kept for compatibility)
       shadowColor: colors.primary,
       shadowOpacity: 0.3,
       shadowOffset: { width: 0, height: 4 },
       shadowRadius: 12,
-      elevation: 6,
     },
     mergeBtnText: {
       fontSize: 16,

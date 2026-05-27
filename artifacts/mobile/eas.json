@@ -1,16 +1,27 @@
 {
   "cli": {
-    "version": ">= 16.0.0"
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "image": "latest",
+        "env": {
+          "EXPO_PUBLIC_API_URL": "https://superhero-geiger-enticing.ngrok-free.dev",
+          "EAS_BUILD_NO_EXPO_GO_WARNING": "true"
+        }
       }
     },
     "production": {
       "android": {
-        "buildType": "app-bundle"
+        "buildType": "apk",
+        "image": "latest",
+        "env": {
+          "EXPO_PUBLIC_API_URL": "https://superhero-geiger-enticing.ngrok-free.dev",
+          "EAS_BUILD_NO_EXPO_GO_WARNING": "true"
+        }
       }
     }
   },

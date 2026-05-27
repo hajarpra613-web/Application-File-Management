@@ -1,6 +1,11 @@
 {
   "name": "@workspace/mobile",
   "version": "0.0.0",
+  "engines": {
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=9.0.0"
+  },
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
