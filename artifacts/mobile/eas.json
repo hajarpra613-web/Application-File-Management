@@ -1,8 +1,7 @@
 {
   "cli": {
     "version": ">= 16.0.0",
-    "appVersionSource": "remote",
-    "packageManager": "pnpm"
+    "appVersionSource": "remote"
   },
   "build": {
     "preview": {
@@ -23,6 +22,9 @@
           "EXPO_PUBLIC_API_URL": "https://superhero-geiger-enticing.ngrok-free.dev",
           "EAS_BUILD_NO_EXPO_GO_WARNING": "true"
         }
+      },
+      "hooks": {
+        "pre-install": "bash eas-build-pre-install.sh"
       }
     }
   },

@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+set -e
 
-npm install -g pnpm
-pnpm install
+echo "Installing pnpm globally..."
+npm install -g pnpm@9.15.4
+
+echo "Installing dependencies with pnpm..."
+pnpm install --frozen-lockfile
+
+echo "✓ Dependencies installed successfully"
