@@ -1,7 +1,7 @@
-import { Router, type IRouter } from "express";
+import { Router } from "express";
 import { getDriveFiles, syncDriveFiles } from "../lib/driveService";
 
-const router: IRouter = Router();
+const router = Router();
 
 router.get("/drive/files", async (req, res) => {
   try {
