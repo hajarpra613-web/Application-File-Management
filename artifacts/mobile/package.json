@@ -1,6 +1,8 @@
 {
   "name": "@workspace/mobile",
   "version": "0.0.0",
+  "packageManager": "pnpm@9.15.4",
+
   "engines": {
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
