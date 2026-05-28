@@ -1,2 +1,8 @@
+# Exclude all workspace/monorepo configuration that triggers EAS workspace detection
 pnpm-workspace.yaml
+pnpm-lock.yaml
 yarn.lock
+.yarnrc.yml
+.yarnrc
+.npmrc
+tsconfig.base.json
