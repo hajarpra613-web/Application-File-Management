@@ -5,20 +5,10 @@
     "version": "1.0.0",
     "scheme": "manajemenberkas",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "android"
     ],
     "android": {
-      "package": "com.zax26.mobile",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#1a3a5c"
-      }
-    },
-    "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "com.zax26.mobile"
+      "package": "com.zax26.mobile"
     },
     "plugins": [
       "expo-router"
