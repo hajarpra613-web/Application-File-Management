@@ -10,6 +10,8 @@
   },
   "private": true,
   "dependencies": {
+    "@expo/cli": "54.0.23",
+    "@expo/schema-utils": "^56.0.1",
     "typescript": "~5.9.3"
   },
   "devDependencies": {
