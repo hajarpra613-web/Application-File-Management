@@ -3,45 +3,30 @@
     "name": "Manajemen Berkas",
     "slug": "mobile",
     "version": "1.0.0",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "mobile",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#1a3a5c"
+    "scheme": "manajemenberkas",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "com.zax26.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#1a3a5c"
+      }
     },
     "ios": {
-      "supportsTablet": false
-    },
-    "android": {
-      "package": "com.hajar26.mobile"
-    },
-    "web": {
-      "favicon": "./assets/images/icon.png"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.zax26.mobile"
     },
     "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://replit.com/"
-        }
-      ],
-      "expo-font",
-      "expo-web-browser"
+      "expo-router"
     ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    },
+    "owner": "zax26",
     "extra": {
       "eas": {
-        "projectId": "8d367402-bb6f-47b0-8f90-a9093630368f"
+        "projectId": "183e94b2-a84c-4a5c-af2e-1fc936159944"
       }
     }
   }

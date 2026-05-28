@@ -4,5 +4,9 @@ pnpm-lock.yaml
 yarn.lock
 .yarnrc.yml
 .yarnrc
-.npmrc
 tsconfig.base.json
+../package.json
+../pnpm-lock.yaml
+../lib
+../artifacts/api-server
+../artifacts/mobile/tsconfig.json
