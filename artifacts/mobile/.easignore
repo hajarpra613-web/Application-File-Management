@@ -1,12 +1,39 @@
 # Exclude all workspace/monorepo configuration that triggers EAS workspace detection
+# pnpm configs
 pnpm-workspace.yaml
 pnpm-lock.yaml
+.pnpmfile.cjs
+
+# Yarn configs
 yarn.lock
 .yarnrc.yml
 .yarnrc
-tsconfig.base.json
+
+# Workspace files
 ../package.json
 ../pnpm-lock.yaml
 ../lib
 ../artifacts/api-server
-../artifacts/mobile/tsconfig.json
+../artifacts/api-server/**
+../artifacts/db
+../artifacts/db/**
+
+# TypeScript
+tsconfig.base.json
+../tsconfig.base.json
+../tsconfig.json
+
+# Root config files
+../.gitignore
+../.npmrc
+../BUILD_APK_GUIDE.md
+../DEBUG_GUIDE.md
+../README_BUILD.md
+../TROUBLESHOOTING.md
+../pnpm-workspace.yaml
+
+# Development
+../.git
+../.vscode
+../node_modules
+.sixth
