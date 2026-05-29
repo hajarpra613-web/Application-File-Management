@@ -10,12 +10,12 @@
   },
   "private": true,
   "dependencies": {
-    "@expo/cli": "54.0.23",
     "@expo/schema-utils": "^56.0.1",
     "typescript": "~5.9.3"
   },
   "devDependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
+    "@expo/cli": "54.0.23",
     "@expo/vector-icons": "^15.1.1",
     "cross-env": "^7.0.3",
     "esbuild": "0.28.0",

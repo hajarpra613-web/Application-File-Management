@@ -165,4 +165,4 @@ overrides:
 
 allowBuilds:
   esbuild: false
-  msgpackr-extract: set this to true or false
+  msgpackr-extract: true
