@@ -5,7 +5,11 @@
   "build": {
     "production": {
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "prebuildCommand": "npm install --legacy-peer-deps && expo prebuild --no-install --platform android"
+      },
+      "env": {
+        "NPM_CONFIG_NODE_LINKER": "hoisted"
       }
     }
   },
