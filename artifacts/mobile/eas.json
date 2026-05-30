@@ -7,7 +7,8 @@
     "production": {
       "android": {
         "buildType": "apk",
-        "node": "20.19.4"
+        "node": "20.19.4",
+        "prebuildCommand": "npm ci --omit=optional"
       }
     }
   },
