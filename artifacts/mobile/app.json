@@ -8,12 +8,12 @@
       "android"
     ],
     "android": {
-      "package": "com.zax26.mobile"
+      "package": "com.hajar26.mobile"
     },
-    "owner": "zax26",
+    "owner": "hajar26",
     "extra": {
       "eas": {
-        "projectId": "183e94b2-a84c-4a5c-af2e-1fc936159944"
+        "projectId": "60fa14fe-794a-4900-9018-3055d163fe3c"
       }
     }
   }
