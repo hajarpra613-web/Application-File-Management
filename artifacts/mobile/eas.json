@@ -1,13 +1,14 @@
 {
   "cli": {
-    "version": ">= 16.0.0",
+    "version": ">= 7.0.0",
     "appVersionSource": "local"
   },
   "build": {
     "production": {
+      "node": "20",
       "android": {
         "buildType": "apk",
-        "prebuildCommand": "npm install --legacy-peer-deps && expo prebuild --no-install --platform android"
+        "prebuildCommand": "npm install --legacy-peer-deps && npx expo prebuild --no-install --platform android"
       },
       "env": {
         "NPM_CONFIG_NODE_LINKER": "hoisted"
