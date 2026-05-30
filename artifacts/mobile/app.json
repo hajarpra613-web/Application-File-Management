@@ -8,12 +8,12 @@
       "android"
     ],
     "android": {
-      "package": "com.hajar26.mobile"
+      "package": "com.pra276.mobile"
     },
-    "owner": "hajar26",
+    "owner": "pra276",
     "extra": {
       "eas": {
-        "projectId": "622e9d52-7a4b-4070-94e4-6fb41cdbaaeb"
+        "projectId": "3f6ef060-3c43-4a2c-9b54-adf2eb73f365"
       }
     }
   }
