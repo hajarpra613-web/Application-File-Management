@@ -9,3 +9,7 @@ build
 pnpm-lock.yaml
 npm-lock.json
 yarn.lock
+
+# Expo
+.expo/
+expo-env.d.ts
