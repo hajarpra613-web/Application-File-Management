@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Manajemen Berkas",
-    "slug": "manajemen-berkas-lamaran",
+    "slug": "mobile",
     "version": "1.0.0",
     "scheme": "manajemenberkas",
     "platforms": [
@@ -13,7 +13,7 @@
     "owner": "hajar26",
     "extra": {
       "eas": {
-        "projectId": "60fa14fe-794a-4900-9018-3055d163fe3c"
+        "projectId": "622e9d52-7a4b-4070-94e4-6fb41cdbaaeb"
       }
     }
   }
