@@ -5,13 +5,8 @@
   },
   "build": {
     "production": {
-      "node": "20.11.0",
       "android": {
-        "buildType": "apk",
-        "prebuildCommand": "npm install --legacy-peer-deps && npx expo prebuild --no-install --platform android"
-      },
-      "env": {
-        "NPM_CONFIG_NODE_LINKER": "hoisted"
+        "buildType": "apk"
       }
     }
   },
