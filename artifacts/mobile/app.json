@@ -5,7 +5,8 @@
     "version": "1.0.0",
     "scheme": "manajemenberkas",
     "platforms": [
-      "android"
+      "android",
+      "web"
     ],
     "android": {
       "package": "com.pra276.mobile"

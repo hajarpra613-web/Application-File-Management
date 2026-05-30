@@ -39,6 +39,8 @@ npm install -g pnpm
 
 ## Setup Environment Variables
 
+### Backend API Server
+
 Buat file `.env` di `artifacts/api-server/` (atau set di server hosting):
 
 ```env
@@ -48,11 +50,36 @@ GOOGLE_DRIVE_FOLDER_ID=your_folder_id_here
 
 # Wajib untuk server
 SESSION_SECRET=random_secret_string_min_32_chars
-PORT=8080
+
+# Port server (default: 8000)
+PORT=8000
 
 # Database (opsional jika tidak pakai fitur DB)
 DATABASE_URL=postgresql://user:pass@host:5432/dbname
 ```
+
+### Mobile App (Web & APK)
+
+#### Development (Web Browser)
+Buat atau edit `.env.development` di `artifacts/mobile/`:
+```env
+# URL API server untuk web development
+EXPO_PUBLIC_API_DEV_URL=http://localhost:8000
+```
+
+#### Production (APK Build)
+Gunakan `.env.production` di `artifacts/mobile/` (sudah ada):
+```env
+# URL untuk APK (gunakan ngrok atau domain production)
+EXPO_PUBLIC_API_URL=https://superhero-geiger-enticing.ngrok-free.dev
+```
+
+**Konfigurasi API URL Priority:**
+1. `EXPO_PUBLIC_API_URL` (production/ngrok — gunakan untuk APK)
+2. `EXPO_PUBLIC_API_DEV_URL` (development override — untuk web lokal)
+3. `http://localhost:8000` (default hardcoded — web development fallback)
+4. `https://{EXPO_PUBLIC_DOMAIN}` (Replit domain — jika tersedia)
+5. `http://10.0.2.2:8000` (Android emulator fallback)
 
 > **Tanpa credentials Google Drive**, server otomatis berjalan dalam **Mode Demo** dengan 6 file contoh.
 
