@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Manajemen Berkas",
-    "slug": "mobile",
+    "slug": "manajemen-berkas-lamaran",
     "version": "1.0.0",
     "scheme": "manajemenberkas",
     "platforms": [
